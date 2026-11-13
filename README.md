@@ -47,7 +47,7 @@ The scripts in the repository root run in order and build on each other.
 
 Figures (`step*.png`) are written to the repository root. The higher-dimensional
 extension (4D cart-pole, 6D planar quadrotor) is in `higher_dimensional/`. The
-manuscript is under review and will be linked here once published.
+manuscript is in preparation and will be linked here once available.
 
 ## Install and run
 
