@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "Data-Efficient Prediction of the Region of Attraction for Learned Koopman Controllers"
+authors:
+  - family-names: Osunyemi
+    given-names: Promise Oluwaseyi
+    affiliation: "Department of Electronic and Electrical Engineering, Obafemi Awolowo University, Ile-Ife, Nigeria"
+license: MIT
+repository-code: "https://github.com/promise-codex/Koopman"
+date-released: 2026-11-13

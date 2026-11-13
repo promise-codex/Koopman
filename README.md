@@ -1,5 +1,7 @@
 # Data-Efficient Prediction of the Region of Attraction for Learned Koopman Controllers
 
+**Author:** Promise Oluwaseyi Osunyemi, Department of Electronic and Electrical Engineering, Obafemi Awolowo University, Ile-Ife, Nigeria
+
 Course project for EEE 577 (Intelligent Control). The project builds a full
 learning-for-control pipeline on two nonlinear benchmarks (a Duffing double well
 oscillator and an inverted pendulum), and adds a prediction step: it estimates
@@ -20,7 +22,7 @@ fully simulated ground truth and averaged over ten random splits.
 
 ## Pipeline
 
-The scripts in `src/` run in order and build on each other.
+The scripts in the repository root run in order and build on each other.
 
 | stage | script | what it does |
 |------|--------|--------------|
@@ -43,13 +45,14 @@ The scripts in `src/` run in order and build on each other.
 - Failure prediction, 81x81 grid, 35% of states tested: 97.3% (Duffing) and
   98.6% (pendulum) accurate on the untested states, with low false safe rates.
 
-Figures are in `figures/`. The full write up is in `report/`.
+Figures (`step*.png`) are written to the repository root. The higher-dimensional
+extension (4D cart-pole, 6D planar quadrotor) is in `higher_dimensional/`. The
+manuscript is under review and will be linked here once published.
 
 ## Install and run
 
 ```bash
 pip install -r requirements.txt
-cd src
 python step4_lqr.py             --system duffing --umax 0.5
 python step5_where_it_breaks.py --system duffing --umax 0.5 --grid 81
 python step7_train_koopman.py   --system duffing
@@ -65,9 +68,9 @@ scikit-learn.
 ## Repository layout
 
 ```
-src/        the Python pipeline, in run order
-figures/    the generated figures
-report/     the manuscript (LaTeX source; build with pdflatex)
+*.py                 the two-dimensional pipeline (Duffing, pendulum), in run order
+step*.png            the generated figures
+higher_dimensional/  4D cart-pole and 6D planar quadrotor, with their own README
 ```
 
 ## Scope and limitations
@@ -77,5 +80,17 @@ guarantee. The one hard guarantee is a small Lyapunov safe core, and it holds fo
 the linearised learned model, not the true nonlinear plant. The method
 interpolates between tests spread across the space. It does not extrapolate well
 into a region with no nearby tests, where accuracy falls to about 89 to 92%. The
-rule in practice is to sample across the whole operating envelope. See `report/`
-for the full discussion.
+rule in practice is to sample across the whole operating envelope. See
+`higher_dimensional/README.md` for the higher-dimensional results.
+
+## Citation
+
+```
+Osunyemi, P. O. (2026). Data-Efficient Prediction of the Region of Attraction
+for Learned Koopman Controllers [Computer software].
+https://github.com/promise-codex/Koopman
+```
+
+## Licence
+
+Released under the MIT Licence. See `LICENSE`.
